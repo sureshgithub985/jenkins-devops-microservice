@@ -5,4 +5,10 @@ node {
     stage('Test') {
         echo "Test"
     }
+	stage('Deploy') {
+        echo "Deploy"
+    }
+	stage('Install') {
+        echo "Install"
+    }
 }
