@@ -5,12 +5,18 @@ pipeline{
     //agent {
       //  docker { image 'node:14.15.5-buster' }
     //}
+    environment {
+        dockerHome = "tool docker"
+        mavenGHome = "tool maven"
+        PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+    }
     stages {
         stage('Build'){
             steps {
-                //sh 'node --verison'
+                sh 'mvn --verison'
+                sh  'docker version'
                 echo "Build"
-               // ehco "PATH - $PATH"
+               ehco "PATH - $PATH"
                 //echo "BUILD_NUMBER - $env.BUILD_NUMBER"
                 //echo "BUILD_ID - $env.BUILD_ID"
                 //echo "JOB_NAME - $env.JOB_NAME"
