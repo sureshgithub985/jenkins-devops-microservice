@@ -6,8 +6,8 @@ pipeline{
       //  docker { image 'node:14.15.5-buster' }
     //}
     environment {
-        dockerHome = "tool docker"
-        mavenGHome = "tool maven"
+        dockerHome = tool 'docker'
+        mavenHome = tool 'maven'
         PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
     }
     stages {
@@ -16,7 +16,7 @@ pipeline{
                 //sh 'mvn --verison'
                 //sh  'docker version'
                 echo "Build"
-                //ehco "PATH is  ${PATH}"
+                ehco "SURESH is  ${PATH}"
                 sh 'printenv'
                 //echo "BUILD_NUMBER - $env.BUILD_NUMBER"
                 //echo "BUILD_ID - $env.BUILD_ID"
