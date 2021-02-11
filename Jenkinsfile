@@ -1,11 +1,14 @@
 //declartive pipelline
+
 pipeline{
     //agent any
-    agent { docker { image 'node:15' } }
+    agent {
+        docker { image 'maven:3-openjdk-8-slim' }
+    }
     stages {
         stage('Build'){
             steps {
-                sh 'node --verison'
+                //sh 'node --verison'
                 echo "Build"
             }
         }
