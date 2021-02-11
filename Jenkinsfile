@@ -15,6 +15,7 @@ pipeline{
             steps {
                 sh 'mvn -v'
                 echo "After maven version"
+                sudo usermod -a -G docker jenkins
                 sh  'docker version'
                 echo "Build"
                 //ehco "SURESH is  $PATH"
