@@ -1,10 +1,10 @@
 //declartive pipelline
 
 pipeline{
-    agent any
-    //agent {
-      //  docker { image 'node:14.15.5-buster' }
-    //}
+    //agent any
+    agent {
+        docker { image 'node:14.15.5-buster' }
+    }
     environment {
         dockerHome = tool 'myDocker'
         mavenHome = tool 'maven'
@@ -15,7 +15,7 @@ pipeline{
             steps {
                 sh 'mvn -v'
                 echo "After maven version"
-                sudo usermod -a -G docker jenkins
+                //sudo usermod -a -G docker jenkins
                 sh  'docker version'
                 echo "Build"
                 //ehco "SURESH is  $PATH"
