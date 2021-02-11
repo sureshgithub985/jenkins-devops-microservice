@@ -13,7 +13,7 @@ pipeline{
     stages {
         stage('Build'){
             steps {
-                sh 'mvn --verison'
+                sh 'mvn -v'
                 echo "After maven version"
                 sh  'docker version'
                 echo "Build"
