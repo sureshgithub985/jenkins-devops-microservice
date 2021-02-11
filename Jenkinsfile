@@ -1,11 +1,7 @@
 //declartive pipelline
 pipeline{
     //agent any
-    agent {
-        docker {
-            image 'node:15'
-        }
-    }
+    agent { docker { image 'node:15' } }
     stages {
         stage('Build'){
             steps {
