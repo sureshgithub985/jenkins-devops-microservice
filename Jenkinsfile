@@ -3,7 +3,7 @@
 pipeline{
     //agent any
     agent {
-        docker { image 'maven:3-openjdk-8-slim' }
+        docker { image 'node:14.15.5-buster' }
     }
     stages {
         stage('Build'){
