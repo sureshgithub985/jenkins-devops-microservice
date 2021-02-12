@@ -65,7 +65,7 @@ pipeline{
 					 //echo $result
 				    //sh 'chmod -R 755 /var/jenkins_home/workspace/jenkins-devops-microservice@tmp'
 					echo "After changing the permission"
-				    sh 'docker login'
+				    //sh 'docker login'
 					echo "succesfully loggined"
                     dockerImage = docker.build("suresh931/currency-exchange-devops:${env.BUILD_TAG}")
                 }
