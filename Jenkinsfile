@@ -1,8 +1,8 @@
 //declartive pipelline
 
 pipeline{
-    agent any
-    //agent { dockerfile true }
+    //agent any
+    agent { dockerfile true }
     //agent {
       //  docker { image 'node:14.15.5-buster' }
     //}
