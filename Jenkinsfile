@@ -1,19 +1,20 @@
 //declartive pipelline
 
 pipeline{
-    //agent any
-    agent { dockerfile true }
+    agent any
+    //agent { dockerfile true }
     //agent {
       //  docker { image 'node:14.15.5-buster' }
     //}
     environment {
-        dockerHome = tool 'myDocker'
+        dockerHome = tool 'docker'
         mavenHome = tool 'maven'
         PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
     }
     stages {
         stage('Checkout'){
             steps {
+			    echo "In checkout step"
                 sh 'mvn -v'
                 echo "After maven version"
                 //sudo usermod -a -G docker jenkins
