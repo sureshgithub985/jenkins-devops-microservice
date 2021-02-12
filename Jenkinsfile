@@ -1,8 +1,8 @@
 //declartive pipelline
 
 pipeline{
-    //agent any
-    agent { dockerfile true }
+    agent any
+    //agent { dockerfile true }
     //agent {
       //  docker { image 'node:14.15.5-buster' }
     //}
@@ -51,26 +51,6 @@ pipeline{
             steps {
                 echo "Package"
                 sh "mvn package -DskipTests"
-            }
-        }
-          stage('Build Docker Image'){
-            steps {
-                echo "Build Docker Image"
-                //"docker build -t suresh931/currency-exchange-devops:$env.BUILD_TAG"
-                script {
-                    dockerImage = docker.build("suresh931/currency-exchange-devops:${env.BUILD_TAG}")
-                }
-            }
-        }
-          stage('Push Docker Image'){
-            steps {
-                echo "Push Docker Image"
-                script {
-                    docker.withRegistry('' , dockerHub){
-                        dockerImage.Push();
-                        dockerImage.Push('latest');
-                    }
-                }
             }
         }
     }
