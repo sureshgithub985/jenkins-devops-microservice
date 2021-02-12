@@ -57,7 +57,7 @@ pipeline{
             steps {
                 echo "Push Docker Image"
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com' , dockerHub){
+                    docker.withRegistry('' , dockerHub){
                         dockerImage.Push();
                         dockerImage.Push('latest');
                     }
