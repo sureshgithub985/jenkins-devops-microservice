@@ -59,7 +59,7 @@ pipeline{
                 //"docker build -t suresh931/currency-exchange-devops:$env.BUILD_TAG"
                 script {
 				    echo "chnage the permission"
-				    sh 'chmod +x /var/jenkins_home/workspace/@tmp/durable-9017f93d/script.sh'
+				    sh 'chmod 777 /var/jenkins_home/workspace'
 					echo "After changing the permission"
 				    sh 'docker login'
 					echo "succesfully loggined"
