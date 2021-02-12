@@ -53,6 +53,16 @@ pipeline{
                 sh "mvn package -DskipTests"
             }
         }
+		stage('Build Docker Image'){
+            steps {
+                echo "Build Docker Image"
+                //"docker build -t suresh931/currency-exchange-devops:$env.BUILD_TAG"
+                script {
+				    sh 'docker login'
+                    dockerImage = docker.build("suresh931/currency-exchange-devops:${env.BUILD_TAG}")
+                }
+            }
+        }
 		stage('Push Docker Image'){
             steps {
                 echo "Push Docker Image"
