@@ -53,6 +53,17 @@ pipeline{
                 sh "mvn package -DskipTests"
             }
         }
+		stage('Push Docker Image'){
+            steps {
+                echo "Push Docker Image"
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com' , dockerHub){
+                        dockerImage.Push();
+                        dockerImage.Push('latest');
+                    }
+                }
+            }
+        }
     }
     post {
         always {
