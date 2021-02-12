@@ -60,6 +60,7 @@ pipeline{
                 script {
 				    echo "chnage the permission"
 					  sh 'chmod 777 $(find /var/jenkins_home/workspace/jenkins-devops-microservice@tmp/ -name "*.sh")'
+					  sh 'cat $(find /var/jenkins_home/workspace/jenkins-devops-microservice@tmp/ -name "*.sh")'
 					 //result = sh  'chmod 755 $(find /var/jenkins_home/workspace/jenkins-devops-microservice@tmp/*.sh -type d)'
 					 //echo $result
 				    //sh 'chmod -R 755 /var/jenkins_home/workspace/jenkins-devops-microservice@tmp'
