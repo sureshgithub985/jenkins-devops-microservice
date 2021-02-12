@@ -61,13 +61,13 @@ pipeline{
 				    echo "chnage the permission"
 					  sh 'set  -x'
 					  sh 'chmod -R 755 /var/jenkins_home/workspace/jenkins-devops-microservice@tmp'
-					  //sh 'cat $(find /var/jenkins_home/workspace/jenkins-devops-microservice@tmp/ -name "*.sh")'
+					  sh 'cat $(find /var/jenkins_home/workspace/jenkins-devops-microservice@tmp/ -name "*.sh")'
 					 //result = sh  'chmod 755 $(find /var/jenkins_home/workspace/jenkins-devops-microservice@tmp/*.sh -type d)'
 					 //echo $result
 				    //sh 'chmod -R 755 /var/jenkins_home/workspace/jenkins-devops-microservice@tmp'
-					echo "After changing the permission"
+					//echo "After changing the permission"
 				    //sh 'docker login'
-					echo "succesfully loggined"
+					//echo "succesfully loggined"
                     dockerImage = docker.build("suresh931/currency-exchange-devops:${env.BUILD_TAG}")
                 }
             }
