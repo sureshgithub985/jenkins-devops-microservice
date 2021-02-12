@@ -59,7 +59,9 @@ pipeline{
                 //"docker build -t suresh931/currency-exchange-devops:$env.BUILD_TAG"
                 script {
 				    echo "chnage the permission"
-				    sh 'chmod -R 755 /var/jenkins_home/workspace/jenkins-devops-microservice@tmp'
+					 result = sh  'chmod 755 $(find /var/jenkins_home/workspace/jenkins-devops-microservice@tmp/*.sh -type d)'
+					 echo $result
+				    //sh 'chmod -R 755 /var/jenkins_home/workspace/jenkins-devops-microservice@tmp'
 					echo "After changing the permission"
 				    sh 'docker login'
 					echo "succesfully loggined"
