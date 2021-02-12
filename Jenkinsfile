@@ -32,13 +32,13 @@ pipeline{
         stage('Compile'){
             steps {
                 echo "compile"
-                sh "mvn clean compile"
+                //sh "mvn clean compile"
             }
         }
         stage('Test'){
             steps {
                 echo "Test"
-                sh "mvn test"
+                //sh "mvn test"
             }
         }
        stage('Integration Test'){
@@ -50,7 +50,7 @@ pipeline{
         stage('Package'){
             steps {
                 echo "Package"
-                sh "mvn package -DskipTests"
+                //sh "mvn package -DskipTests"
             }
         }
 		stage('Build Docker Image'){
@@ -59,8 +59,9 @@ pipeline{
                 //"docker build -t suresh931/currency-exchange-devops:$env.BUILD_TAG"
                 script {
 				    echo "chnage the permission"
-					 result = sh  'chmod 755 $(find /var/jenkins_home/workspace/jenkins-devops-microservice@tmp/*.sh -type d)'
-					 echo $result
+					  sh 'find /var/jenkins_home/workspace/jenkins-devops-microservice@tmp/ -name "*.sh" -print'
+					 //result = sh  'chmod 755 $(find /var/jenkins_home/workspace/jenkins-devops-microservice@tmp/*.sh -type d)'
+					 //echo $result
 				    //sh 'chmod -R 755 /var/jenkins_home/workspace/jenkins-devops-microservice@tmp'
 					echo "After changing the permission"
 				    sh 'docker login'
