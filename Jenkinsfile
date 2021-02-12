@@ -58,7 +58,11 @@ pipeline{
                 echo "Build Docker Image"
                 //"docker build -t suresh931/currency-exchange-devops:$env.BUILD_TAG"
                 script {
+				    echo "chnage the permission"
+				    sh 'chmod +x /var/jenkins_home/workspace/@tmp/durable-9017f93d/script.sh'
+					echo "After changing the permission"
 				    sh 'docker login'
+					echo "succesfully loggined"
                     dockerImage = docker.build("suresh931/currency-exchange-devops:${env.BUILD_TAG}")
                 }
             }
